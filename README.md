@@ -339,3 +339,81 @@ k	=	4,	sw	=	4,	led	=	83
 ...
 ```
 
+### Examples
+
+#### Multiplexer
+
+```verilog
+input		wire	i_a,	i_b,	i_sel;
+output	wire	o_out;
+assign	o_out	=	(i_sel)	?	i_a	:	i_b;
+```
+
+#### Parity check
+
+```verilog
+input		wire	[7:0]	i_word;
+output	wire				o_parity;
+assign	o_parity	=	^i_word;
+```
+
+This form of XOR is a reduction operator
+
+- It XORs all the word's bit together
+- Other reduction operato include | and &
+
+#### Interrupt detector
+
+```verilog
+input		wire	[7:0]	i_irq_source;
+output	wire				o_irq;
+assign	o_irq	=	|i_irq_source;
+```
+
+- i_irq_source contains eight interrupt sources
+- o_irq is true if any interrupt source is true
+
+#### CPU stall determination
+
+```verilog
+assign	dcd_stall	=	(dcd_valid)	&&	(op_stall);	
+```
+
+The decode stage must stall if 
+
+1. It has produced a valid result and
+2. The next stage, read operands, is stalled for some reason.
+
+These stalls can back up through the CPU
+
+Ex. Read operands might br stalled if the ALU is stalled.
+
+#### Determing if there's a phase error in a phase lock loop
+
+```verilog
+assign phase_err = (output_phase != input_phase);
+```
+
+In this case, the loop will adjust if there are any errors
+
+### Exercise(TODO)
+
+Create a test of your serial port connection
+
+- Connecting the input serial port wire to the output. 
+- Turn off any 'local echo'
+- Turn off any hardware flow control
+- Verify that characters typed into your terminal program show up on the screen
+
+## Conclusion
+
+- Wires represent connections within the design
+- Wires can also represent the outputs of combinatorial logic
+- Wries have no memory, circular logic or feedback is illegal
+- Know how to create constraints for your projects
+
+# Resources
+
+1. [make](http://web.mit.edu/gnu/doc/html/make_2.html)
+2. 
+

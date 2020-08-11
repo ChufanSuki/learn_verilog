@@ -1,0 +1,1 @@
+obj_dir/Vthruwire.cpp obj_dir/Vthruwire.h obj_dir/Vthruwire.mk obj_dir/Vthruwire__Syms.cpp obj_dir/Vthruwire__Syms.h obj_dir/Vthruwire__ver.d obj_dir/Vthruwire_classes.mk  : /usr/local/Cellar/verilator/4.018/bin/verilator_bin /usr/local/Cellar/verilator/4.018/bin/verilator_bin thruwire.v 

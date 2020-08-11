@@ -15,6 +15,7 @@
 ##
 ## Creator:	Dan Gisselquist, Ph.D.
 ##		Gisselquist Technology, LLC
+## /usr/local/Cellar/verilator/4.018/share/verilator
 ##
 ################################################################################
 ##
@@ -32,6 +33,8 @@
 .PHONY: all
 all: maskbus
 
+verilator = /usr/local/Cellar/verilator/4.018/share/verilator
+
 obj_dir/Vmaskbus.cpp: maskbus.v
 	verilator -Wall -cc maskbus.v
 
@@ -39,8 +42,8 @@ obj_dir/Vmaskbus__ALL.a: obj_dir/Vmaskbus.cpp
 	make -C obj_dir -f Vmaskbus.mk
 
 maskbus: maskbus.cpp obj_dir/Vmaskbus__ALL.a
-	g++ -I/usr/share/verilator/include -I obj_dir \
-		/usr/share/verilator/include/verilated.cpp \
+	g++ -I $(verilator)/include -I obj_dir \
+		$(verilator)/include/verilated.cpp \
 		maskbus.cpp obj_dir/Vmaskbus__ALL.a	\
 		-o maskbus
 

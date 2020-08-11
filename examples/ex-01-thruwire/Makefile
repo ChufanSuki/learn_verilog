@@ -32,6 +32,8 @@
 .PHONY: all
 all: thruwire
 
+verilator = /usr/local/Cellar/verilator/4.018/share/verilator
+
 obj_dir/Vthruwire.cpp: thruwire.v
 	verilator -Wall -cc thruwire.v
 
@@ -41,8 +43,8 @@ obj_dir/Vthruwire__ALL.a: obj_dir/Vthruwire.cpp
 # Build a simulation
 thruwire: thruwire.cpp obj_dir/Vthruwire__ALL.a
 	@echo "Building a Verilator-based simulation of thruwire"
-	g++ -I/usr/share/verilator/include  -I obj_dir     \
-		/usr/share/verilator/include/verilated.cpp \
+	g++ -I $(verilator)/include  -I obj_dir     \
+		$(verilator)/include/verilated.cpp \
 		thruwire.cpp obj_dir/Vthruwire__ALL.a      \
 		-o thruwire
 
