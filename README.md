@@ -179,7 +179,7 @@ Let's put it all together:
 ```
 
 ```
-% cd ex-01-thruwire
+% cd examples/ex-01-thruwire
 % make
 ```
 
@@ -267,7 +267,7 @@ assign	o_led	=	i_sw	^	w_internal;
 
 Get the internal structure from the code:
 
-<img src="/Users/allen/learn_verilog/assets/internal.png" style="zoom:50%;" />
+<img src="assets/internal.png" style="zoom:50%;" />
 
 ### Circular Logic
 
@@ -283,7 +283,7 @@ This is roughlt equivalent to creating a short circuit
 
 Most tools will fail to build such designs
 
-<img src="/Users/allen/learn_verilog/assets/circular.png" style="zoom:50%;" />
+<img src="assets/circular.png" style="zoom:50%;" />
 
 #### Dual Assignment
 
